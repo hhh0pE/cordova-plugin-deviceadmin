@@ -8,13 +8,12 @@ import android.widget.Toast;
 public class CordovaDeviceAdminReceiver extends android.app.admin.DeviceAdminReceiver {
 
     void showToast(Context context, String msg) {
-        String status = context.getString(R.string.admin_receiver_status, msg);
-        Toast.makeText(context, status, Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onEnabled(Context context, Intent intent) {
-        showToast(context, context.getString(R.string.admin_receiver_status_enabled));
+        showToast(context, "Device Admin: enabled");
     }
 
     @Override
@@ -25,7 +24,7 @@ public class CordovaDeviceAdminReceiver extends android.app.admin.DeviceAdminRec
 
     @Override
     public void onDisabled(Context context, Intent intent) {
-        showToast(context, context.getString(R.string.admin_receiver_status_disabled));
+        showToast(context, "Device admin: disabled");
     }
 
     @Override
